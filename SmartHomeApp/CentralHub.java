@@ -5,7 +5,8 @@ public class CentralHub {
 		this.command = command;
 	}
 
-	public void pressButon() {
+	public void clickButton() {
 		command.execute();
 	}
+
 }

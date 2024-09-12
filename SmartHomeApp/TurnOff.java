@@ -1,7 +1,7 @@
 public class TurnOff implements Command {
-	private Device device;
+	Device device;
 
-	public TurnOff(Device device) {
+	TurnOff(Device device) {
 		this.device = device;
 	}
 
@@ -9,4 +9,5 @@ public class TurnOff implements Command {
 	public void execute() {
 		device.turnOff();
 	}
+
 }
