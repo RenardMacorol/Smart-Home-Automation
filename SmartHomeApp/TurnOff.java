@@ -1,5 +1,5 @@
 public class TurnOff implements Command {
-	Device device;
+	private Device device;
 
 	TurnOff(Device device) {
 		this.device = device;

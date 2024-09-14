@@ -5,37 +5,33 @@ public class SmartHome {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int input = 0;
+
 		Light light = new Light();
-		CentralHub centralHub = new CentralHub();
+		MusicPlayer musicPlayer = new MusicPlayer();
 
 		Command lightOffCommand = new TurnOff(light);
 		Command lightOnCommand = new TurnOn(light);
+		Command musicPlayerOn = new TurnOn(musicPlayer);
+		Command musicPlayerOff = new TurnOff(musicPlayer);
+		Command prevSongCommand = new PrevSong(musicPlayer);
+		Command nextSongCommand = new NextSong(musicPlayer);
 
-		System.out.println("Welcome to the Central Hub");
+		CentralHub centralHub = new CentralHub();
 
-		System.out.println("What you like to do?");
-		System.out.println("[1]Light Setting");
-		System.out.println("[2]Music Player");
-		System.out.println("[3]Themostat");
+		centralHub.setCommand(lightOnCommand);
+		centralHub.clickButton();
 
-		switch (input) {
-			case 1:
-				centralHub.setCommand(lightOnCommand);
-				centralHub.clickButton();
+		centralHub.setCommand(lightOffCommand);
+		centralHub.clickButton();
 
-				break;
-			case 2:
-				centralHub.setCommand(lightOffCommand);
-				centralHub.clickButton();
-
-				break;
-			case 3:
-
-				break;
-
-			default:
-				System.out.println("Invalid Input");
-				break;
-		}
+		centralHub.setCommand(musicPlayerOn);
+		centralHub.clickButton();
+		centralHub.setCommand(prevSongCommand);
+		centralHub.clickButton();
+		centralHub.setCommand(nextSongCommand);
+		centralHub.clickButton();
+		centralHub.setCommand(musicPlayerOff);
+		centralHub.clickButton();
 	}
+
 }
